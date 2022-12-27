@@ -58,18 +58,18 @@ def main():
 
     #==============================================================================
     # Title
-    st.title('Sentiment Analysis - Restaurant Reviews')
+    st.title('title')
 
     #from sklearn.datasets import fetch_20newsgroups
 
-#categories = ['alt.atheism', 'comp.graphics',
-#              'comp.sys.ibm.pc.hardware', 'comp.sys.mac.hardware','comp.os.ms-windows.misc',
-#              'comp.windows.x', 'misc.forsale', 'rec.autos',
-#              'rec.motorcycles', 'rec.sport.baseball',
-#              'rec.sport.hockey', 'sci.crypt', 'sci.electronics',
-#              'sci.med', 'sci.space', 'soc.religion.christian',
-#              'talk.politics.guns', 'talk.politics.mideast',
-#              'talk.politics.misc', 'talk.religion.misc']
+    #categories = ['alt.atheism', 'comp.graphics',
+    #              'comp.sys.ibm.pc.hardware', 'comp.sys.mac.hardware','comp.os.ms-windows.misc',
+    #              'comp.windows.x', 'misc.forsale', 'rec.autos',
+    #              'rec.motorcycles', 'rec.sport.baseball',
+    #              'rec.sport.hockey', 'sci.crypt', 'sci.electronics',
+    #              'sci.med', 'sci.space', 'soc.religion.christian',
+    #              'talk.politics.guns', 'talk.politics.mideast',
+    #              'talk.politics.misc', 'talk.religion.misc']
 
     #newsgroups = fetch_20newsgroups(categories=['comp.windows.x'],remove=('headers', 'footers', 'quotes'))
     #text = [x.replace('\n', ' ') for x in newsgroups.data]
