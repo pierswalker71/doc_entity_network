@@ -5,7 +5,7 @@ streamlit==1.11.0
 
 pandas==1.5.1
 
-numpy==1.20.2
+numpy>=1.15.0
 matplotlib==3.4.2
 
 #networkx==2.6.3
