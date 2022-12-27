@@ -6,12 +6,12 @@ def main():
     
     import pandas as pd
     
-    import spacy
+    #import spacy
     #en = spacy.load("en_core_web_sm")
-    en = spacy.load("en_core_web_md")
+    #en = spacy.load("en_core_web_md")
 
 
-    from itertools import combinations
+    #from itertools import combinations
 
     #import spacy
     #nlp = spacy.load('en_core_web_sm')
@@ -19,10 +19,10 @@ def main():
     #spacy.cli.download("en_core_web_lg")
     #nlp = spacy.load("en_core_web_lg")
 
-    from spacy import displacy
+    #from spacy import displacy
 
     #!pip install 'networkx<2.7'
-    import networkx as nx
+    #import networkx as nx
 
     #==============================================================================
     # Functions
@@ -59,7 +59,7 @@ def main():
     #==============================================================================
 
 
-    from sklearn.datasets import fetch_20newsgroups
+    #from sklearn.datasets import fetch_20newsgroups
 
 #categories = ['alt.atheism', 'comp.graphics',
 #              'comp.sys.ibm.pc.hardware', 'comp.sys.mac.hardware','comp.os.ms-windows.misc',
@@ -70,13 +70,13 @@ def main():
 #              'talk.politics.guns', 'talk.politics.mideast',
 #              'talk.politics.misc', 'talk.religion.misc']
 
-    newsgroups = fetch_20newsgroups(categories=['comp.windows.x'],remove=('headers', 'footers', 'quotes'))
-    text = [x.replace('\n', ' ') for x in newsgroups.data]
-    data = pd.DataFrame(data={'text':text})
-    display(data.head(5))
-    row = 1
-    data.iloc[row,0]
-    #'sci.electronics',rec.motorcycles
+    #newsgroups = fetch_20newsgroups(categories=['comp.windows.x'],remove=('headers', 'footers', 'quotes'))
+    #text = [x.replace('\n', ' ') for x in newsgroups.data]
+    #data = pd.DataFrame(data={'text':text})
+    #display(data.head(5))
+    #row = 1
+    #data.iloc[row,0]
+    ##'sci.electronics',rec.motorcycles
 
     #doc = nlp(data.iloc[row,0])
     #displacy.render(doc,style="ent",jupyter=True)
