@@ -11,7 +11,7 @@ def main():
     #en = spacy.load("en_core_web_md")
 
 
-    #from itertools import combinations
+    from itertools import combinations
 
     #import spacy
     #nlp = spacy.load('en_core_web_sm')
@@ -57,7 +57,8 @@ def main():
 
 
     #==============================================================================
-
+    # Title
+    st.title('Sentiment Analysis - Restaurant Reviews')
 
     #from sklearn.datasets import fetch_20newsgroups
 
