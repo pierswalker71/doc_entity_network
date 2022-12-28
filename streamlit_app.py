@@ -85,6 +85,7 @@ def main():
     row = 1
     doc_example = nlp(data.iloc[row,0])
     visualize_ner(doc_example, labels=nlp.get_pipe("ner").labels,title='', show_table=False)
+    #https://github.com/explosion/spacy-streamlit
     
     #fig,ax = plt.subplots(figsize=(15,6))
     #st.pyplot(fig)
@@ -171,7 +172,8 @@ def main():
     # Network
     st.header('Network')
     
-    fig,ax = plt.figure(1, figsize=(8, 8), dpi=120)
+    #fig, ax = plt.subplots(figsize=(4,4))
+    fig, ax = plt.subplots(1, figsize=(8, 8), dpi=120)
 
     color_map = ['red' if node in top_nodes else 'b' for node in G]
 
