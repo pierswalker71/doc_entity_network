@@ -58,9 +58,8 @@ def main():
 
     # Get data
     st.header('Import data')
-    st.write('20 news groups dataset')
     
-    news_category = st.selectbox('Select news category',['comp.windows.x','rec.sport.baseball','rec.sport.hockey'])
+    news_category = st.selectbox('Select category from "20 news groups" dataset',['comp.windows.x','rec.sport.baseball','rec.sport.hockey'])
 
     #categories = ['alt.atheism', 'comp.graphics',
     #              'comp.sys.ibm.pc.hardware', 'comp.sys.mac.hardware','comp.os.ms-windows.misc',
@@ -83,7 +82,7 @@ def main():
     with st.expander('Named entity recognition example'):
         row = 1
         doc_example = nlp(data.iloc[row,0])
-        visualize_ner(doc_example, labels=nlp.get_pipe("ner").labels,show_table=FALSE)
+        visualize_ner(doc_example, labels=nlp.get_pipe("ner").labels,show_table=False)
     
     #fig,ax = plt.subplots(figsize=(15,6))
     #st.pyplot(fig)
