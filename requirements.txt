@@ -4,8 +4,11 @@ pandas #1.5.2
 numpy #1.24.1
 matplotlib #3.6.2
 
-spacy # ==2.2.0 # For compatibility with en_core_web_sm and md #3.4.4
+#spacy # ==2.2.0 # For compatibility with en_core_web_sm and md #3.4.4
 #https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.2.0/en_core_web_sm-2.2.0.tar.gz
+
+spacy>=3.0.0,<4.0.0
+https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.0.0/en_core_web_sm-3.0.0.tar.gz
 
 #scikit-learn
 
