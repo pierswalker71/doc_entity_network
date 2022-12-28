@@ -55,9 +55,10 @@ def main():
     #==============================================================================   
 
     # Get data
-    st.header('Import Data')
+    st.header('Import data')
+    st.write('20 news groups dataset')
     
-    news_category = st.selectbox('News category',['comp.windows.x','rec.sport.baseball','rec.sport.hockey'])
+    news_category = st.selectbox('Select news category',['comp.windows.x','rec.sport.baseball','rec.sport.hockey'])
 
     #categories = ['alt.atheism', 'comp.graphics',
     #              'comp.sys.ibm.pc.hardware', 'comp.sys.mac.hardware','comp.os.ms-windows.misc',
@@ -72,17 +73,16 @@ def main():
     text = [x.replace('\n', ' ') for x in newsgroups.data]
     data = pd.DataFrame(data={'text':text})
     
-
+    # Display whole dataset
     with st.expander('Dataset'):
         st.dataframe(data)
-    #display(data.head(5))
-
+        
+    # Display example NER
     row = 1
-    #data.iloc[row,0]
-    ##'sci.electronics',rec.motorcycles
-
-    doc = nlp(data.iloc[row,0])
-    #displacy.render(doc,style="ent",jupyter=True)
+    doc_example = nlp(data.iloc[row,0])
+    
+    fig,ax = plt.subplots(figsize=(15,6))
+    #displacy.render(doc_example,style="ent",jupyter=True)
 
 
     #==============================================================================
