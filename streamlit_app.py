@@ -93,6 +93,80 @@ def main():
     # Processing data
     st.header('Analysis')
     
+    #-----------------------------------------------
+    # Build df for all pages with named entities for every row
+    label_df = pd.DataFrame(columns =['page','entity','label', 'count'])
+
+    #for row_id in range(data.shape[0]-1):
+    for row_id in range(50):
+        doc = nlp(data.iloc[:,0][row_id])
+        page_title = str(row_id)
+        #doc.user_data['title'] = page_title
+        label_df = pd.concat([label_df,ner_to_dataframe(doc,page_title)])
+
+    label_df.reset_index(drop=True,inplace=True)
+
+    #-----------------------------------------------
+    # filter relevant entities
+
+    # Add up all occurrences of labels across all pages to find most common 
+    label_count = label_df.groupby(['label'], as_index=False)['count'].sum()
+    label_count.sort_values(by='count', ascending=False, inplace=True)
+    top_label_count = label_count['label'].tolist()[:5]
+
+    # Create list of entities which have produced most common labels
+    # Use this list to filter 
+    top_label_count_entities = []
+
+    for label in top_label_count:
+        for x in label_df[label_df['label']==label]['entity'].tolist ():
+            top_label_count_entities.append(x )
+
+    top_label_count_entities = list(set(top_label_count_entities))
+    top_label_count_entities = [x for x in top_label_count_entities if x not in ['CARDINAL', 'ORDINAL']]
+
+    selected_entities = top_label_count_entities
+    filtered_label_df = label_df[label_df['entity'].isin(selected_entities)]
+
+    # Create list of pages with found entities (just in case some are empty)
+    pages = list(set(filtered_label_df['page'].tolist()))
+    pages = [int(x) for x in pages]
+    pages.sort()
+    pages = [str(x) for x in pages]
+
+    # Loop around each set of pages to extract the labels from all filtered entity categories
+    labels_loop = []
+    for page in pages:
+        labels = filtered_label_df[filtered_label_df['page'] == page]['label'].tolist()
+        labels = [x.lower() for x in labels]
+        labels = list(set(labels))
+        labels.sort()
+        labels_loop.append(labels)
+    
+    # Create df containing page id and list of unique labels
+    unique_labels_per_page = pd.DataFrame(data={'page':pages,'labels':labels_loop})
+ 
+    #-----------------------------------------------
+    # Build dataframe with connections of labels within each page required by networkx
+    networkx_data = pd.DataFrame(columns=['source','target'])
+
+    # Add pairs of labels to networks
+    for row in range(len(unique_labels_per_page)):
+        # Get pairs of labels
+        pairs_of_labels = list(combinations(unique_labels_per_page.iloc[row,1], 2))
+
+        for pair in pairs_of_labels:
+            networkx_data.loc[len(networkx_data.index)] = pair
+
+    # Create graph
+    G = nx.from_pandas_edgelist(networkx_data,source='source',target='target')
+
+    # Determine most connected nodes
+    node_to_neighbors_mapping = [(node, len(list(G.neighbors(node)))) for node in G.nodes()]
+    node_to_neighbors_ser = pd.Series(data=dict(node_to_neighbors_mapping))
+    node_to_neighbors_ser.sort_values(ascending=False).head()
+    top_nodes = [x for x in node_to_neighbors_ser.sort_values(ascending=False).index[:6]]
+    
     #==============================================================================
     # Network
     st.header('Network')
