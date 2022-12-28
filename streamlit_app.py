@@ -79,11 +79,11 @@ def main():
         st.dataframe(data)
         
     # Display example NER
-    #st.write('Named entity recognition example')
+    st.write('Named entity recognition example')
     #with st.expander('Named entity recognition example'):
     row = 1
     doc_example = nlp(data.iloc[row,0])
-    visualize_ner(doc_example, labels=nlp.get_pipe("ner").labels,title='Named entity recognition example', show_table=False)
+    visualize_ner(doc_example, labels=nlp.get_pipe("ner").labels,title='', show_table=False)
     
     #fig,ax = plt.subplots(figsize=(15,6))
     #st.pyplot(fig)
