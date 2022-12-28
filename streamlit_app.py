@@ -16,7 +16,7 @@ def main():
     import spacy
     nlp = spacy.load("en_core_web_md")
     #from spacy import displacy
-    #import spacy-streamlit
+    from spacy_streamlit import visualize_ner
     
     from sklearn.datasets import fetch_20newsgroups
 
