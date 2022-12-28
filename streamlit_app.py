@@ -9,6 +9,9 @@ def main():
     # Imports
     import pandas as pd
     
+    from collections import Counter
+    from itertools import combinations
+    
     import spacy
     nlp = spacy.load("en_core_web_md")
     
