@@ -68,7 +68,7 @@ def main():
     data = pd.DataFrame(data={'text':text})
     st.dataframe(data)
     #display(data.head(5))
-    #row = 1
+    row = 1
     #data.iloc[row,0]
     ##'sci.electronics',rec.motorcycles
 
