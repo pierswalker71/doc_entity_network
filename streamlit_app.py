@@ -63,15 +63,16 @@ def main():
     #              'talk.politics.guns', 'talk.politics.mideast',
     #              'talk.politics.misc', 'talk.religion.misc']
 
-    #newsgroups = fetch_20newsgroups(categories=['comp.windows.x'],remove=('headers', 'footers', 'quotes'))
-    #text = [x.replace('\n', ' ') for x in newsgroups.data]
-    #data = pd.DataFrame(data={'text':text})
+    newsgroups = fetch_20newsgroups(categories=['comp.windows.x'],remove=('headers', 'footers', 'quotes'))
+    text = [x.replace('\n', ' ') for x in newsgroups.data]
+    data = pd.DataFrame(data={'text':text})
+    st.dataframe(data)
     #display(data.head(5))
     #row = 1
     #data.iloc[row,0]
     ##'sci.electronics',rec.motorcycles
 
-    #doc = nlp(data.iloc[row,0])
+    doc = nlp(data.iloc[row,0])
     #displacy.render(doc,style="ent",jupyter=True)
 
 
