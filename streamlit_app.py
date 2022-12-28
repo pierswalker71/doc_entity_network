@@ -48,11 +48,11 @@ def main():
         return df
     #==============================================================================
     # Title
-    st.title('Document keyword identification and mapping')
-    
+    st.title('     Textual Analysis ')
+    st.title('Keyword identification and mapping')    
     
     # Get data
-    #from sklearn.datasets import fetch_20newsgroups
+    from sklearn.datasets import fetch_20newsgroups
 
     #categories = ['alt.atheism', 'comp.graphics',
     #              'comp.sys.ibm.pc.hardware', 'comp.sys.mac.hardware','comp.os.ms-windows.misc',
