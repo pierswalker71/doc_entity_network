@@ -171,9 +171,15 @@ def main():
     # Network
     st.header('Network')
     
-    
-    
+    fig,ax = plt.figure(1, figsize=(8, 8), dpi=120)
 
+    color_map = ['red' if node in top_nodes else 'b' for node in G]
+
+    nx.draw(G, ax=ax, pos=pos,node_size=50,node_color=color_map, with_labels=True, font_weight='bold',font_size=6)
+    
+    
+    
+#==============================================================================
 
 if __name__ == '__main__':
     main()
