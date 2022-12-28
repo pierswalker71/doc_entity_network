@@ -57,7 +57,7 @@ def main():
     # Get data
     st.header('Import Data')
     
-    news_category = st.selectbox('News category',['comp.windows.x','rec.sport.baseball','rec.sport.hockey])
+    news_category = st.selectbox('News category',['comp.windows.x','rec.sport.baseball','rec.sport.hockey'])
 
     #categories = ['alt.atheism', 'comp.graphics',
     #              'comp.sys.ibm.pc.hardware', 'comp.sys.mac.hardware','comp.os.ms-windows.misc',
