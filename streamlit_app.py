@@ -49,14 +49,15 @@ def main():
         return df
     #==============================================================================
     # Title
-    st.title('     Textual Analysis ')
-    st.title('Keyword identification and mapping')    
+    st.title('Textual Analysis - Keyword identification and mapping')    
     st.write('Piers Walker 2022. https://github.com/pierswalker71')
     
-    
-    
+    #==============================================================================   
+
     # Get data
     st.header('Import Data')
+    
+    news_category = st.selectbox('News category',['comp.windows.x','rec.sport.baseball','rec.sport.hockey])
 
     #categories = ['alt.atheism', 'comp.graphics',
     #              'comp.sys.ibm.pc.hardware', 'comp.sys.mac.hardware','comp.os.ms-windows.misc',
@@ -67,7 +68,7 @@ def main():
     #              'talk.politics.guns', 'talk.politics.mideast',
     #              'talk.politics.misc', 'talk.religion.misc']
 
-    newsgroups = fetch_20newsgroups(categories=['comp.windows.x'],remove=('headers', 'footers', 'quotes'))
+    newsgroups = fetch_20newsgroups(categories=[news_category],remove=('headers', 'footers', 'quotes'))
     text = [x.replace('\n', ' ') for x in newsgroups.data]
     data = pd.DataFrame(data={'text':text})
     
