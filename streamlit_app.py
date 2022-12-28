@@ -179,7 +179,7 @@ def main():
     pos = nx.spring_layout(G, k=0.15, iterations=20)
     
     nx.draw(G, ax=ax, pos=pos,node_size=50,node_color=color_map, with_labels=True, font_weight='bold',font_size=6)
-    
+    st.pyplot(fig)
     
     
 #==============================================================================
