@@ -80,13 +80,12 @@ def main():
         st.dataframe(data)
         
     # Display example NER
-    row = 1
-    doc_example = nlp(data.iloc[row,0])
+    with st.expander('Named entity recognition example'):
+        row = 1
+        doc_example = nlp(data.iloc[row,0])
+        visualize_ner(doc_example, labels=nlp.get_pipe("ner").labels,show_table=FALSE)
     
     #fig,ax = plt.subplots(figsize=(15,6))
-    #displacy.render(doc_example,style="ent",jupyter=True)
-    visualize_ner(doc_example, labels=nlp.get_pipe("ner").labels)
-    
     #st.pyplot(fig)
 
 
