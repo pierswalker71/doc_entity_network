@@ -83,11 +83,11 @@ def main():
     row = 1
     doc_example = nlp(data.iloc[row,0])
     
-    fig,ax = plt.subplots(figsize=(15,6))
+    #fig,ax = plt.subplots(figsize=(15,6))
     #displacy.render(doc_example,style="ent",jupyter=True)
-    #visualize_ner(doc, labels=nlp.get_pipe("ner").labels)
+    visualize_ner(doc, labels=nlp.get_pipe("ner").labels)
     
-    st.pyplot(fig)
+    #st.pyplot(fig)
 
 
     #==============================================================================
