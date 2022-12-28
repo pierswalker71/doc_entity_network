@@ -173,7 +173,7 @@ def main():
     st.header('Network')
     
     #fig, ax = plt.subplots(figsize=(4,4))
-    fig, ax = plt.subplots(1, figsize=(12, 12), dpi=100)
+    fig, ax = plt.subplots(figsize=(12, 12), dpi=100)
 
     color_map = ['red' if node in top_nodes else 'b' for node in G]
     pos = nx.spring_layout(G, k=0.15, iterations=20)
