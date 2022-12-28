@@ -8,13 +8,15 @@ def main():
     #==============================================================================
     # Imports
     import pandas as pd
+    import matplotlib.pyplot as plt
     
     from collections import Counter
     from itertools import combinations
     
     import spacy
     nlp = spacy.load("en_core_web_md")
-    from spacy import displacy
+    #from spacy import displacy
+    #import spacy-streamlit
     
     from sklearn.datasets import fetch_20newsgroups
 
@@ -83,6 +85,9 @@ def main():
     
     fig,ax = plt.subplots(figsize=(15,6))
     #displacy.render(doc_example,style="ent",jupyter=True)
+    #visualize_ner(doc, labels=nlp.get_pipe("ner").labels)
+    
+    st.pyplot(fig)
 
 
     #==============================================================================
