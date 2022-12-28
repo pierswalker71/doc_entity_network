@@ -15,4 +15,4 @@ spacy_streamlit
 
 scikit-learn
 
-#networkx==2.6.3
+networkx==2.6.3
