@@ -14,8 +14,9 @@ def main():
     
     import spacy
     nlp = spacy.load("en_core_web_md")
-    
     from spacy import displacy
+    
+    from sklearn.datasets import fetch_20newsgroups
 
     #==============================================================================
     # Functions
@@ -50,9 +51,14 @@ def main():
     # Title
     st.title('     Textual Analysis ')
     st.title('Keyword identification and mapping')    
+    st.write('Piers Walker 2022. https://github.com/pierswalker71')
+    
+    
     
     # Get data
-    from sklearn.datasets import fetch_20newsgroups
+    st.header('Import Data')
+
+            st.dataframe(input_data)
 
     #categories = ['alt.atheism', 'comp.graphics',
     #              'comp.sys.ibm.pc.hardware', 'comp.sys.mac.hardware','comp.os.ms-windows.misc',
@@ -66,8 +72,12 @@ def main():
     newsgroups = fetch_20newsgroups(categories=['comp.windows.x'],remove=('headers', 'footers', 'quotes'))
     text = [x.replace('\n', ' ') for x in newsgroups.data]
     data = pd.DataFrame(data={'text':text})
-    st.dataframe(data)
+    
+
+    with st.expander('Dataset'):
+        st.dataframe(data)
     #display(data.head(5))
+
     row = 1
     #data.iloc[row,0]
     ##'sci.electronics',rec.motorcycles
