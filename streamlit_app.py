@@ -15,10 +15,11 @@ def main():
     
     import spacy
     nlp = spacy.load("en_core_web_md")
-    #from spacy import displacy
     from spacy_streamlit import visualize_ner
     
     from sklearn.datasets import fetch_20newsgroups
+    
+    import networkx as nx
 
     #==============================================================================
     # Functions
@@ -75,7 +76,7 @@ def main():
     data = pd.DataFrame(data={'text':text})
     
     # Display whole dataset
-    with st.expander('Dataset'):
+    with st.expander('Display data table'):
         st.dataframe(data)
         
     # Display example NER
@@ -87,9 +88,17 @@ def main():
     
     #fig,ax = plt.subplots(figsize=(15,6))
     #st.pyplot(fig)
-
-
+    
     #==============================================================================
+    # Processing data
+    st.header('Analysis')
+    
+    #==============================================================================
+    # Network
+    st.header('Network')
+    
+    
+    
 
 
 if __name__ == '__main__':
