@@ -182,7 +182,7 @@ def main():
     #st.pyplot(fig)
     
     
-    dot = nx.nx_pydot.to_pydot(K5)
+    dot = nx.nx_pydot.to_pydot(G)
     st.graphviz_chart(dot.to_string())
     
     
