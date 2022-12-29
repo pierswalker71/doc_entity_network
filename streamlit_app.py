@@ -84,7 +84,7 @@ def main():
     # Truncate long strings
     #data['text'] = data['text'].str.slice(0,50)
     
-    # Select just first rows of data
+    # Select just first few rows of data
     data = data.iloc[:100,:]
     
     # Display dataset
@@ -93,6 +93,7 @@ def main():
 
     # Display example NER
     st.header('Demonstration of named entity recognition using input data')
+    st.write('Use of SpaCy ML model to identify entities')
 
     with st.expander('Named entity recognition example'):
         st.write('Select text for processing')
@@ -114,8 +115,8 @@ def main():
     # Build df for all pages with named entities for every row
     label_df = pd.DataFrame(columns =['page','entity','label', 'count'])
 
-    #for row_id in range(data.shape[0]-1):
-    for row_id in range(50):
+    for row_id in range(data.shape[0]-1):
+    #for row_id in range(50):
         doc = nlp(data.iloc[:,0][row_id])
         page_title = str(row_id)
         #doc.user_data['title'] = page_title
