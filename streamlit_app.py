@@ -61,8 +61,8 @@ def main():
     # Get data
     st.header('Import data')
 
-    with st.expander('Change news category'):
-        news_category = st.selectbox('Select category from "20 news groups" dataset',['comp.windows.x','rec.sport.baseball','rec.sport.hockey'])
+    with st.expander('Change news category if required'):
+        news_category = st.selectbox('Select a different category from "20 news groups" dataset',['comp.windows.x','rec.sport.baseball','rec.sport.hockey'])
 
     #categories = ['alt.atheism', 'comp.graphics',
     #              'comp.sys.ibm.pc.hardware', 'comp.sys.mac.hardware','comp.os.ms-windows.misc',
@@ -84,14 +84,14 @@ def main():
     
     
     # Display whole dataset
-    with st.expander('Display data table'):
+    with st.expander('Display table of text inputs'):
         st.dataframe(data)
 
     # Display example NER
-    st.header('Named entity recognition example')
+    st.header('Demonstration of named entity recognition using input data')
 
     with st.expander('Named entity recognition example'):
-        st.write('Named entity recognition example')
+        st.write('Select text for processing')
         eg_text_row = st.slider('Example row ID',0,len(data.index)-1,0)
         eg_text_length = st.slider('Example text length',5,len(data.iloc[eg_text_row,0]),min(300,int(len(data.iloc[eg_text_row,0])*0.8)))
     
