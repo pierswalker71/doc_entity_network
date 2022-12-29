@@ -187,7 +187,7 @@ def main():
 
 
     #plt.figure()    
-    nx.draw(G,pos,ax=ax,edge_color='white',width=1,linewidths=1, node_size=10,node_color='blue')
+    nx.draw(G,pos=pos,ax=ax,edge_color='black',width=1,linewidths=1, node_size=10,node_color=color_map,with_labels=True, font_weight='bold',font_size=6)
     #plt.axis('on')
     #plt.show()
     st.pyplot(fig)
