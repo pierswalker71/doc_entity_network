@@ -184,7 +184,7 @@ def main():
     
     #==============================================================================
     # Network
-    st.header('Network')
+    st.header('Visualise the network of key 🗝️ words')
     
     fig, ax = plt.subplots(figsize=(10,10), dpi=200)
     #fig, ax = plt.subplots(figsize=(8, 8), dpi=200)
