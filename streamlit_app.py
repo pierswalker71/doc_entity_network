@@ -82,7 +82,7 @@ def main():
     data = pd.DataFrame(data={'text':text})
     
     # Truncate long strings
-    data['text'] = data['text'].str.slice(0,50)
+    #data['text'] = data['text'].str.slice(0,50)
     
     # Select just first rows of data
     data = data.iloc[:100,:]
