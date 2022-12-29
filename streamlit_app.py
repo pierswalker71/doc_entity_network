@@ -92,7 +92,7 @@ def main():
     #with st.expander('Named entity recognition example'):
     eg_text_length = st.slider('Example text length',5,200,min(100,200))
     #st.write(str(eg_text_length))
-    st.write(data.iloc[eg_text_row,0])
+    st.write(str(len(data.iloc[eg_text_row,0])))
     #eg_text_length = 5
     doc_example = nlp(data.iloc[eg_text_row,0][:eg_text_length])
     visualize_ner(doc_example, labels=nlp.get_pipe("ner").labels,title='', show_table=False)
