@@ -75,7 +75,11 @@ def main():
     text = [x.replace('\n', ' ') for x in newsgroups.data]
     data = pd.DataFrame(data={'text':text})
 
+    
+
     data = data.iloc[:100,:]
+
+    st.header('Analysis')
     
     # Display whole dataset
     with st.expander('Display data table'):
@@ -83,9 +87,10 @@ def main():
         
     # Display example NER
     st.write('Named entity recognition example')
+    eg_text_row = st.slider('Data row',0,data.shape(0)-1,0)
     #with st.expander('Named entity recognition example'):
     row = 1
-    doc_example = nlp(data.iloc[row,0][:200])
+    doc_example = nlp(data.iloc[eg_text_row,0][:200])
     visualize_ner(doc_example, labels=nlp.get_pipe("ner").labels,title='', show_table=False)
     #https://github.com/explosion/spacy-streamlit
     
@@ -94,7 +99,7 @@ def main():
     
     #==============================================================================
     # Processing data
-    st.header('Analysis')
+    
     
     #-----------------------------------------------
     # Build df for all pages with named entities for every row
