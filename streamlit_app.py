@@ -80,8 +80,11 @@ def main():
     #text = [x[:100] for x in text]
     
     data = pd.DataFrame(data={'text':text})
+
     
     # Truncate long strings
+    data['text'] = data['text'].str.replace('\W', '', regex=True)
+    
     #data['text'] = data['text'].str.slice(0,50)
     
     # Select just first few rows of data
