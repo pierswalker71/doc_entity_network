@@ -76,6 +76,8 @@ def main():
 
     newsgroups = fetch_20newsgroups(categories=[news_category],remove=('headers', 'footers', 'quotes'))
     text = [x.replace('\n', ' ') for x in newsgroups.data]
+    text = [x[:50] for x in newsgroups.data]
+    
     data = pd.DataFrame(data={'text':text})
     
     # Select just first rows of data
