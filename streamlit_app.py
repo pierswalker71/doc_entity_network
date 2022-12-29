@@ -60,8 +60,9 @@ def main():
 
     # Get data
     st.header('Import data')
-    
-    news_category = st.selectbox('Select category from "20 news groups" dataset',['comp.windows.x','rec.sport.baseball','rec.sport.hockey'])
+
+    with st.expander('Change news category'):
+        news_category = st.selectbox('Select category from "20 news groups" dataset',['comp.windows.x','rec.sport.baseball','rec.sport.hockey'])
 
     #categories = ['alt.atheism', 'comp.graphics',
     #              'comp.sys.ibm.pc.hardware', 'comp.sys.mac.hardware','comp.os.ms-windows.misc',
