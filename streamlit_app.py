@@ -87,7 +87,7 @@ def main():
         
     # Display example NER
     st.write('Named entity recognition example')
-    eg_text_row = st.slider('Data row',0,data.shape(0)-1,0)
+    eg_text_row = st.slider('Data row',0,data.shape[0]-1,0)
     #with st.expander('Named entity recognition example'):
     row = 1
     doc_example = nlp(data.iloc[eg_text_row,0][:200])
