@@ -177,8 +177,8 @@ def main():
 
     color_map = ['red' if node in top_nodes else 'b' for node in G]
     pos = nx.spring_layout(G, k=0.15, iterations=20)
-    #pos=pos,, node_size=50
-    nx.draw(G, ax=ax,node_color=color_map, with_labels=True, font_weight='bold',font_size=6)
+    #pos=pos,, node_size=50, with_labels=True, font_weight='bold',font_size=6
+    nx.draw(G, ax=ax,node_color=color_map)
     st.pyplot(fig)
     
     
