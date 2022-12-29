@@ -91,7 +91,8 @@ def main():
     eg_text_row = st.slider('Example row ID',0,len(data.index)-1,0)
     #with st.expander('Named entity recognition example'):
     eg_text_length = st.slider('Example text length',5,len(data.iloc[eg_text_row,0]),np.min(200,400)
-    #st.write(str(eg_text_length))
+    st.write(str(eg_text_length))
+    eg_text_length = 50
     doc_example = nlp(data.iloc[eg_text_row,0][:eg_text_length])
     visualize_ner(doc_example, labels=nlp.get_pipe("ner").labels,title='', show_table=False)
     #https://github.com/explosion/spacy-streamlit
