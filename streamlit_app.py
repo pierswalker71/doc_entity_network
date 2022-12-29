@@ -190,6 +190,8 @@ def main():
     nx.draw(G,pos,edge_color='black',width=1,linewidths=1, node_size=10,node_color='blue',alpha=0.9)
     plt.axis('on')
     plt.show()
+
+    st.header('Next section')
     
     
 #==============================================================================
