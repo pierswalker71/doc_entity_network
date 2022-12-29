@@ -87,7 +87,7 @@ def main():
     special_chars = '¬`£$£#/,.+*><@|”'
     special_chars = {x:'' for x in special_chars}
     #df.stack().str.replace(f'[{chars}]', '', regex=True).unstack()
-    data = data.replacespecial_chars, regex=True, inplace=True)
+    data.replace(special_chars, regex=True, inplace=True)
     #data['text'] = data['text'].str.slice(0,50)
     
     # Select just first few rows of data
