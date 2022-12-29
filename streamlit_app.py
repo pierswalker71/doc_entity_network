@@ -74,6 +74,8 @@ def main():
     newsgroups = fetch_20newsgroups(categories=[news_category],remove=('headers', 'footers', 'quotes'))
     text = [x.replace('\n', ' ') for x in newsgroups.data]
     data = pd.DataFrame(data={'text':text})
+
+    data = data.iloc[:100,:]
     
     # Display whole dataset
     with st.expander('Display data table'):
