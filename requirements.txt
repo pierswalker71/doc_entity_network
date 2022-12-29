@@ -2,7 +2,7 @@ streamlit #1.16.0
 
 pandas #1.5.2
 numpy #1.24.1
-matplotlib #3.6.2
+matplotlib==3.5.1
 
 spacy # ==2.2.0 # For compatibility with en_core_web_sm and md #3.4.4
 https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.2.0/en_core_web_sm-2.2.0.tar.gz
@@ -15,5 +15,5 @@ spacy_streamlit
 
 scikit-learn
 
-networkx==2.6.3
+networkx==2.8.7
 pydot
