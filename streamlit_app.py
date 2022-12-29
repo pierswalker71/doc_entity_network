@@ -90,7 +90,7 @@ def main():
     st.write('Named entity recognition example')
     eg_text_row = st.slider('Example row ID',0,len(data.index)-1,0)
     #with st.expander('Named entity recognition example'):
-    eg_text_length = st.slider('Example text length',5,min(len(data.iloc[eg_text_row,0]),min(len(data.iloc[eg_text_row,0]),200))
+    eg_text_length = st.slider('Example text length',5,200,min(100,200))
     #st.write(str(eg_text_length))
     #eg_text_length = 5
     doc_example = nlp(data.iloc[eg_text_row,0][:eg_text_length])
