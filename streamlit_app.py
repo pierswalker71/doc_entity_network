@@ -57,7 +57,6 @@ def main():
     st.write('Piers Walker 2022. https://github.com/pierswalker71')
     
     #==============================================================================   
-
     # Get data
     st.header('Import data')
 
@@ -78,12 +77,9 @@ def main():
     newsgroups = fetch_20newsgroups(categories=[news_category],remove=('headers', 'footers', 'quotes'))
     text = [x.replace('\n', ' ') for x in newsgroups.data]
     data = pd.DataFrame(data={'text':text})
-
     
     # Select just first rows of data
     data = data.iloc[:100,:]
-
-    
     
     # Display dataset
     with st.expander('Display table of text inputs'):
@@ -186,27 +182,16 @@ def main():
     # Network
     st.header('Visualise the network of key 🗝️ words')
     
-    fig, ax = plt.subplots(figsize=(10,10), dpi=200)
-    #fig, ax = plt.subplots(figsize=(8, 8), dpi=200)
+    #fig, ax = plt.subplots(figsize=(10,10), dpi=200) # good for mobiles
+    fig, ax = plt.subplots(figsize=(12, 12), dpi=300)
 
     color_map = ['red' if node in top_nodes else 'b' for node in G]
     pos = nx.spring_layout(G, k=0.15, iterations=20, seed=42)
-    #pos=pos,, node_size=50, with_labels=True, font_weight='bold',font_size=6
-    #nx.draw(G, ax=ax,node_color=color_map)
-    #st.pyplot(fig)
-    
-    
-    #dot = nx.nx_pydot.to_pydot(G)
-    #st.graphviz_chart(dot.to_string())
-
-
-    #plt.figure()    
+   
     nx.draw(G,pos=pos,ax=ax,edge_color='black',width=1,linewidths=1, node_size=10,node_color=color_map,with_labels=True, font_weight='normal',font_size=6)
-    #plt.axis('on')
-    #plt.show()
     st.pyplot(fig)
 
-    st.header('Next section')
+    st.header('Analysis')
     
     
 #==============================================================================
