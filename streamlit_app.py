@@ -87,15 +87,13 @@ def main():
         st.dataframe(data)
         
     # Display example NER
-    st.write('Named entity recognition example')
-    eg_text_row = st.slider('Example row ID',0,len(data.index)-1,0)
-    #with st.expander('Named entity recognition example'):
-    eg_text_length = st.slider('Example text length',5,len(data.iloc[eg_text_row,0]),min(300,int(len(data.iloc[eg_text_row,0])*0.8)))
-    #st.write(str(eg_text_length))
-    st.write(str(len(data.iloc[eg_text_row,0])))
-    #eg_text_length = 5
-    doc_example = nlp(data.iloc[eg_text_row,0][:eg_text_length])
-    visualize_ner(doc_example, labels=nlp.get_pipe("ner").labels,title='', show_table=False)
+    with st.expander('Named entity recognition example'):
+        st.write('Named entity recognition example')
+        eg_text_row = st.slider('Example row ID',0,len(data.index)-1,0)
+        eg_text_length = st.slider('Example text length',5,len(data.iloc[eg_text_row,0]),min(300,int(len(data.iloc[eg_text_row,0])*0.8)))
+    
+        doc_example = nlp(data.iloc[eg_text_row,0][:eg_text_length])
+        visualize_ner(doc_example, labels=nlp.get_pipe("ner").labels,title='', show_table=False)
     #https://github.com/explosion/spacy-streamlit
     
     #fig,ax = plt.subplots(figsize=(15,6))
