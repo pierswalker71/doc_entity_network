@@ -80,12 +80,12 @@ def main():
     data = pd.DataFrame(data={'text':text})
 
     
-
+    # Select just first rows of data
     data = data.iloc[:100,:]
 
     
     
-    # Display whole dataset
+    # Display dataset
     with st.expander('Display table of text inputs'):
         st.dataframe(data)
 
@@ -190,7 +190,7 @@ def main():
     #fig, ax = plt.subplots(figsize=(8, 8), dpi=200)
 
     color_map = ['red' if node in top_nodes else 'b' for node in G]
-    pos = nx.spring_layout(G, k=0.15, iterations=20)
+    pos = nx.spring_layout(G, k=0.15, iterations=20, seed=42)
     #pos=pos,, node_size=50, with_labels=True, font_weight='bold',font_size=6
     #nx.draw(G, ax=ax,node_color=color_map)
     #st.pyplot(fig)
