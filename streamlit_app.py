@@ -112,8 +112,8 @@ def main():
     # Build df for all pages with named entities for every row
     label_df = pd.DataFrame(columns =['page','entity','label', 'count'])
 
-    #for row_id in range(data.shape[0]-1):
-    for row_id in range(50):
+    for row_id in range(data.shape[0]-1):
+    #for row_id in range(50):
         doc = nlp(data.iloc[:,0][row_id])
         page_title = str(row_id)
         #doc.user_data['title'] = page_title
@@ -187,26 +187,13 @@ def main():
     st.header('Visualise the network of key 🗝️ words')
     
     fig, ax = plt.subplots(figsize=(10,10), dpi=200)
-    #fig, ax = plt.subplots(figsize=(8, 8), dpi=200)
 
     color_map = ['red' if node in top_nodes else 'b' for node in G]
-    pos = nx.spring_layout(G, k=0.15, iterations=20, seed=42)
-    #pos=pos,, node_size=50, with_labels=True, font_weight='bold',font_size=6
-    #nx.draw(G, ax=ax,node_color=color_map)
-    #st.pyplot(fig)
-    
-    
-    #dot = nx.nx_pydot.to_pydot(G)
-    #st.graphviz_chart(dot.to_string())
-
-
-    #plt.figure()    
+    pos = nx.spring_layout(G, k=0.15, iterations=20, seed=42) 
     nx.draw(G,pos=pos,ax=ax,edge_color='black',width=1,linewidths=1, node_size=10,node_color=color_map,with_labels=True, font_weight='normal',font_size=6)
-    #plt.axis('on')
-    #plt.show()
     st.pyplot(fig)
 
-    st.header('Next section')
+    st.header('Analysis')
     
     
 #==============================================================================
