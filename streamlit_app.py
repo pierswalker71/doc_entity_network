@@ -61,9 +61,6 @@ def main():
     # Get data
     st.header('Import data')
 
-    with st.expander('Change news category if required'):
-        news_category = st.selectbox('Select a different category from "20 news groups" dataset',['comp.windows.x','rec.sport.baseball','rec.sport.hockey'])
-
     #categories = ['alt.atheism', 'comp.graphics',
     #              'comp.sys.ibm.pc.hardware', 'comp.sys.mac.hardware','comp.os.ms-windows.misc',
     #              'comp.windows.x', 'misc.forsale', 'rec.autos',
@@ -72,6 +69,11 @@ def main():
     #              'sci.med', 'sci.space', 'soc.religion.christian',
     #              'talk.politics.guns', 'talk.politics.mideast',
     #              'talk.politics.misc', 'talk.religion.misc']
+
+    categories = ['comp.windows.x','rec.sport.baseball','rec.sport.hockey']
+
+    with st.expander('Change news category if required'):
+        news_category = st.selectbox('Select a different category from "20 news groups" dataset',categories)
 
     newsgroups = fetch_20newsgroups(categories=[news_category],remove=('headers', 'footers', 'quotes'))
     text = [x.replace('\n', ' ') for x in newsgroups.data]
