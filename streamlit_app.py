@@ -80,13 +80,15 @@ def main():
 
     data = data.iloc[:100,:]
 
-    st.header('Analysis')
+    
     
     # Display whole dataset
     with st.expander('Display data table'):
         st.dataframe(data)
-        
+
     # Display example NER
+    st.header('Named entity recognition example')
+
     with st.expander('Named entity recognition example'):
         st.write('Named entity recognition example')
         eg_text_row = st.slider('Example row ID',0,len(data.index)-1,0)
