@@ -76,9 +76,13 @@ def main():
 
     newsgroups = fetch_20newsgroups(categories=[news_category],remove=('headers', 'footers', 'quotes'))
     text = [x.replace('\n', ' ') for x in newsgroups.data]
-    text = [x[:100] for x in text]
+    #st.write(text)
+    #text = [x[:100] for x in text]
     
     data = pd.DataFrame(data={'text':text})
+    
+    # Truncate long strings
+    data['text'] = data['text'].str.slice(0,50)
     
     # Select just first rows of data
     data = data.iloc[:100,:]
