@@ -3,11 +3,11 @@ def main():
     
     
     # Settings
-    st.set_page_config(page_title = 'Keyword Analysis') 
+    st.set_page_config(page_title = 'Textual analysis') 
     
     #==============================================================================
     # Imports
-    import numpy as np
+    #import numpy as np
     import pandas as pd
     import matplotlib.pyplot as plt
     
@@ -61,16 +61,16 @@ def main():
     # Get data
     st.header('Import data')
 
-    #categories = ['alt.atheism', 'comp.graphics',
-    #              'comp.sys.ibm.pc.hardware', 'comp.sys.mac.hardware','comp.os.ms-windows.misc',
-    #              'comp.windows.x', 'misc.forsale', 'rec.autos',
-    #              'rec.motorcycles', 'rec.sport.baseball',
-    #              'rec.sport.hockey', 'sci.crypt', 'sci.electronics',
-    #              'sci.med', 'sci.space', 'soc.religion.christian',
-    #              'talk.politics.guns', 'talk.politics.mideast',
-    #              'talk.politics.misc', 'talk.religion.misc']
+    categories = ['alt.atheism', 'comp.graphics',
+                  'comp.sys.ibm.pc.hardware', 'comp.sys.mac.hardware','comp.os.ms-windows.misc',
+                  'comp.windows.x', 'misc.forsale', 'rec.autos',
+                  'rec.motorcycles', 'rec.sport.baseball',
+                  'rec.sport.hockey', 'sci.crypt', 'sci.electronics',
+                  'sci.med', 'sci.space', 'soc.religion.christian',
+                  'talk.politics.guns', 'talk.politics.mideast',
+                  'talk.politics.misc', 'talk.religion.misc']
 
-    categories = ['comp.windows.x','rec.sport.baseball','rec.sport.hockey']
+    #categories = ['comp.windows.x','rec.sport.baseball','rec.sport.hockey']
 
     with st.expander('Change news category if required'):
         news_category = st.selectbox('Select a different category from "20 news groups" dataset',categories)
