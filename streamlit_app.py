@@ -172,7 +172,7 @@ def main():
     # Network
     st.header('Network')
     
-    fig, ax = plt.subplots(figsize=(4,4))
+    fig, ax = plt.subplots(figsize=(10,10), dpi=200)
     #fig, ax = plt.subplots(figsize=(8, 8), dpi=200)
 
     color_map = ['red' if node in top_nodes else 'b' for node in G]
@@ -187,7 +187,7 @@ def main():
 
 
     #plt.figure()    
-    nx.draw(G,pos=pos,ax=ax,edge_color='black',width=1,linewidths=1, node_size=10,node_color=color_map,with_labels=True, font_weight='bold',font_size=6)
+    nx.draw(G,pos=pos,ax=ax,edge_color='black',width=1,linewidths=1, node_size=10,node_color=color_map,with_labels=True, font_weight='normal',font_size=6)
     #plt.axis('on')
     #plt.show()
     st.pyplot(fig)
