@@ -187,9 +187,10 @@ def main():
 
 
     plt.figure()    
-    nx.draw(G,pos,edge_color='black',width=1,linewidths=1, node_size=10,node_color='blue',alpha=0.9)
-    plt.axis('on')
-    plt.show()
+    nx.draw(G,pos,edge_color='white',width=1,linewidths=1, node_size=10,node_color='blue')
+    #plt.axis('on')
+    #plt.show()
+    st.pyplot(fig)
 
     st.header('Next section')
     
