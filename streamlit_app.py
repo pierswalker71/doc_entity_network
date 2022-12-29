@@ -84,10 +84,11 @@ def main():
     
     # Truncate long strings
     #data['text'] = data['text'].str.replace('\W', '', regex=True)
-    special_chars = '¬`£$£#/,.+*><@|”'
-    special_chars = {x:'' for x in special_chars}
+    #special_chars = '¬`£$£#/,.+*><@|”'
+    #special_chars = {x:'' for x in special_chars}
+
     #df.stack().str.replace(f'[{chars}]', '', regex=True).unstack()
-    data.replace(special_chars, regex=True, inplace=True)
+    #data.replace(, regex=True, inplace=True)
     #data['text'] = data['text'].str.slice(0,50)
     
     # Select just first few rows of data
