@@ -85,7 +85,7 @@ def main():
     st.write('Named entity recognition example')
     #with st.expander('Named entity recognition example'):
     row = 1
-    doc_example = nlp(data.iloc[row,0])
+    doc_example = nlp(data.iloc[row,0][:20])
     visualize_ner(doc_example, labels=nlp.get_pipe("ner").labels,title='', show_table=False)
     #https://github.com/explosion/spacy-streamlit
     
