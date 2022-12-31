@@ -217,10 +217,10 @@ def main():
     
     d=2
     H = G.copy()
-        dn = nx.degree(H)
-        for n in H.nodes():
-            if dn[n] <= d:
-                H.remove_node(n)
+    dn = nx.degree(H)
+    for n in H.nodes():
+        if dn[n] <= d:
+            H.remove_node(n)
 
     fig, ax = plt.subplots(figsize=(12, 12), dpi=300)
     color_map = ['red' if node in top_nodes else 'b' for node in H]
