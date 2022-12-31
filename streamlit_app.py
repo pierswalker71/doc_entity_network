@@ -236,7 +236,7 @@ def main():
             node_color=color_map, with_labels=True, font_weight='normal', font_size=10)
     st.pyplot(fig)
     
-    st.write(node_connected_component(G, node))
+    st.write(nx.node_connected_component(G, node))
     
 
 
