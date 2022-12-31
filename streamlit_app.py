@@ -217,14 +217,15 @@ def main():
     #==============================================================================
     st.header('Analysis')
     st.write('The most connected nodes')
-    
     st.markdown(top_nodes)
     
     top_nodes_and_connections = []
     for node in top_nodes:
         top_nodes_and_connections_temp = nx.node_connected_component(G, node)
         [top_nodes_and_connections.append(x) for x in top_nodes_and_connections_temp if x not in top_nodes_and_connections_temp]
-    #st.write(top_nodes_and_connections)    
+    
+    st.write('top_nodes_and_connections')
+    st.markdown(top_nodes_and_connections)
     
    
     
@@ -233,8 +234,10 @@ def main():
     for node in list(G):
         if node not in top_nodes_and_connections:
             H.remove_node(node)
-        
+      
+    st.write('list(G)')
     st.markdown(list(G))
+    st.write('list(H)')
     st.markdown(list(H))
     
     #node = top_nodes[0]
