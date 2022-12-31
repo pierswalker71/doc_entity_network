@@ -219,6 +219,17 @@ def main():
     st.write('The most connected nodes')
     st.write(top_nodes)
 
+    
+    
+    
+    top_nodes_and_connections = []
+    for node in top_nodes:
+        top_nodes_and_connections_temp = nx.node_connected_component(G, node)
+        [top_nodes_and_connections.append(x) for x in top_nodes_and_connections_temp if x no in connection top_nodes_and_connections_temp]
+    st.write(top_nodes_and_connections)    
+    #graph_top_nodes = G.copy()    
+    #graph_top_nodes.remove_node(top_node_connections)
+        
 
     node = top_nodes[0]
     H = nx.from_dict_of_lists({node: G.neighbors(node)})
