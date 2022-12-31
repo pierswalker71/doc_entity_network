@@ -225,9 +225,10 @@ def main():
         top_nodes_and_connections_temp = nx.node_connected_component(G, node)
         [top_nodes_and_connections.append(x) for x in top_nodes_and_connections_temp]
     
+    st.write('here')
     top_nodes_and_connections = list(set(top_nodes_and_connections))
    
-    st.write('top_nodes_and_connections')
+    #st.write('top_nodes_and_connections')
     #st.markdown(top_nodes_and_connections)
     
    
