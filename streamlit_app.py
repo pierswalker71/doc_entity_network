@@ -55,7 +55,7 @@ def main():
     # Title
     st.title('Textual Analysis - Keyword identification and mapping')    
     st.write('Piers Walker 2022. https://github.com/pierswalker71')
-    st.write('This app analyses a series of news articles, identifying key words within each text and linking them across the texts')
+    st.write('This app analyses a series of news articles, identifying key words within each text and linking them across the texts.')
     
     #==============================================================================   
     # Get data
@@ -73,7 +73,7 @@ def main():
     #categories = ['comp.windows.x','rec.sport.baseball','rec.sport.hockey']
 
     with st.expander('Change news category if required'):
-        news_category = st.selectbox('Select a different category from "20 news groups" dataset',categories)
+        news_category = st.selectbox('Select a different category from the "20 news groups" dataset',categories)
 
     newsgroups = fetch_20newsgroups(categories=[news_category],remove=('headers', 'footers', 'quotes'))
     text = [x.replace('\n', ' ') for x in newsgroups.data]
@@ -210,8 +210,8 @@ def main():
 
 
 
-    #nx.draw(G, pos=pos, ax=ax, edge_color='black' ,width=1, linewidths=1, node_size=10,
-    #        node_color=color_map, with_labels=True, font_weight='normal', font_size=8)
+    nx.draw(G, pos=pos, ax=ax, edge_color='black' ,width=1, linewidths=1, node_size=10,
+            node_color=color_map, with_labels=True, font_weight='normal', font_size=8)
     st.pyplot(fig)
     
     #==============================================================================
