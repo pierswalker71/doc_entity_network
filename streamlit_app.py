@@ -217,10 +217,8 @@ def main():
     #==============================================================================
     st.header('Analysis')
     st.write('The most connected nodes')
+    
     st.write(top_nodes)
-
-    
-    
     
     top_nodes_and_connections = []
     for node in top_nodes:
@@ -253,7 +251,7 @@ def main():
             node_color=color_map, with_labels=True, font_weight='normal', font_size=10)
     st.pyplot(fig)
     
-    st.write(nx.node_connected_component(G, node))
+    #st.write(nx.node_connected_component(G, node))
     
 
 
