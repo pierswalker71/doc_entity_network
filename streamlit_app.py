@@ -226,13 +226,19 @@ def main():
     for node in top_nodes:
         top_nodes_and_connections_temp = nx.node_connected_component(G, node)
         [top_nodes_and_connections.append(x) for x in top_nodes_and_connections_temp if x not in top_nodes_and_connections_temp]
-    st.write(top_nodes_and_connections)    
-    #graph_top_nodes = G.copy()    
-    #graph_top_nodes.remove_node(top_node_connections)
+    #st.write(top_nodes_and_connections)    
+    
+   
+    
+    H = G.copy()
+    
+    for node in G.nodes():
+        if node not in top_nodes_and_connections:
+            H.remove_node(node)
         
 
-    node = top_nodes[0]
-    H = nx.from_dict_of_lists({node: G.neighbors(node)})
+    #node = top_nodes[0]
+    #H = nx.from_dict_of_lists({node: G.neighbors(node)})
     
     #d=2
     #H = G.copy()
