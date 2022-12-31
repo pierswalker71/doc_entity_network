@@ -200,7 +200,7 @@ def main():
     st.write('Display whole network')
     fig, ax = plt.subplots(figsize=(12, 12), dpi=300)
 
-    color_map = ['red' if node in top_nodes else 'b' for node in G]
+    colour_map = ['red' if node in top_nodes else 'b' for node in G]
     pos = nx.spring_layout(G, k=0.15, iterations=20, seed=42)
    
     #nx.draw_networkx_edges(G, pos, alpha=0.3, width=edgewidth, edge_color="m")
@@ -211,7 +211,7 @@ def main():
 
 
     nx.draw(G, pos=pos, ax=ax, edge_color='black' ,width=1, linewidths=1, node_size=10,
-            node_color=color_map, with_labels=True, font_weight='normal', font_size=8)
+            node_color=colour_map, with_labels=True, font_weight='normal', font_size=8)
     st.pyplot(fig)
     
     #==============================================================================
@@ -222,8 +222,9 @@ def main():
     
     top_nodes_and_connections = []
     for node in top_nodes:
+        pass
         #top_nodes_and_connections_temp = nx.node_connected_component(G, node)
-        [top_nodes_and_connections.append(x) for x in nx.node_connected_component(G, node)]
+        #[top_nodes_and_connections.append(x) for x in nx.node_connected_component(G, node)]
    
     #st.dataframe(pd.DataFrame(data=node_to_neighbors_ser, columns=['num connections']))
     st.write('here')
@@ -256,9 +257,9 @@ def main():
             #H.remove_node(n)
     st.write('Display focussed network')
     fig, ax = plt.subplots(figsize=(6, 6), dpi=150)
-    color_map = ['red' if node in top_nodes else 'b' for node in H]
+    colour_map = ['red' if node in top_nodes else 'b' for node in H]
     nx.draw(H, pos=pos, ax=ax, edge_color='black' ,width=1, linewidths=1, node_size=8,
-            node_color=color_map, with_labels=True, font_weight='normal', font_size=10)
+            node_color=colour_map, with_labels=True, font_weight='normal', font_size=10)
     st.pyplot(fig)
     
     #st.write(nx.node_connected_component(G, node))
