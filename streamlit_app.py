@@ -217,14 +217,15 @@ def main():
     #==============================================================================
     st.header('Analysis')
     st.write('The most connected nodes')
-    st.dataframe(pd.DataFrame(data=node_to_neighbors_ser, columns=['num connections']))
+    #st.dataframe(pd.DataFrame(data=node_to_neighbors_ser, columns=['num connections']))
     #st.markdown([x for x in top_nodes])
     
     top_nodes_and_connections = []
     for node in top_nodes:
         top_nodes_and_connections_temp = nx.node_connected_component(G, node)
         [top_nodes_and_connections.append(x) for x in top_nodes_and_connections_temp]
-    
+   
+    st.dataframe(pd.DataFrame(data=node_to_neighbors_ser
     st.write('here')
     top_nodes_and_connections = list(set(top_nodes_and_connections))
    
