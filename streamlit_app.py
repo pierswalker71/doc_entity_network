@@ -222,8 +222,7 @@ def main():
     
     top_nodes_and_connections = []
     for node in top_nodes:
-        pass
-        #top_nodes_and_connections_temp = nx.node_connected_component(G, node)
+        top_nodes_and_connections_temp = nx.node_connected_component(G, node)
         #[top_nodes_and_connections.append(x) for x in nx.node_connected_component(G, node)]
    
     #st.dataframe(pd.DataFrame(data=node_to_neighbors_ser, columns=['num connections']))
