@@ -190,7 +190,7 @@ def main():
     # Determine most connected nodes
     node_to_neighbors_mapping = [(node, len(list(G.neighbors(node)))) for node in G.nodes()]
     node_to_neighbors_ser = pd.Series(data=dict(node_to_neighbors_mapping))
-    node_to_neighbors_ser.sort_values(ascending=False).head()
+    node_to_neighbors_ser.sort_values(ascending=False, inplace=True)
     top_nodes = [x for x in node_to_neighbors_ser.sort_values(ascending=False).index[:6]]
     
     #==============================================================================
@@ -218,7 +218,8 @@ def main():
     #==============================================================================
     st.header('Analysis')
     st.write('The most connected nodes')
-    st.markdown([x for x in top_nodes])
+    st.write(node_to_neighbors_ser)
+    #st.markdown([x for x in top_nodes])
     
     top_nodes_and_connections = []
     for node in top_nodes:
@@ -238,10 +239,10 @@ def main():
         if node not in top_nodes_and_connections:
             H.remove_node(node)
       
-    st.write('list(G)')
-    st.markdown(list(G))
-    st.write('list(H)')
-    st.markdown(list(H))
+    #st.write('list(G)')
+    #st.markdown(list(G))
+    #st.write('list(H)')
+    #st.markdown(list(H))
     
     #node = top_nodes[0]
     #H = nx.from_dict_of_lists({node: G.neighbors(node)})
