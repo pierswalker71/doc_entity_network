@@ -194,10 +194,10 @@ def main():
     
     #==============================================================================
     # Network
-    st.header('Visualise the network of key 🗝️ words')
+    st.header('Visualisation of the network of key 🗝️ words')
     
     #fig, ax = plt.subplots(figsize=(10,10), dpi=200) # good for mobiles
-    st.write('Display whole network')
+    st.write('The whole network')
     fig, ax = plt.subplots(figsize=(12, 12), dpi=300)
 
     colour_map = ['red' if node in top_nodes else 'b' for node in G]
@@ -216,7 +216,7 @@ def main():
     
     #==============================================================================
     st.header('Analysis')
-    st.write('The most connected nodes')
+    st.write('The words with the most connection s')
     st.dataframe(pd.DataFrame(data=node_to_neighbors_ser, columns=['num connections']))
     #st.markdown([x for x in top_nodes])
     
@@ -256,7 +256,7 @@ def main():
     #for n in H.nodes():
         #if dn[n] <= d:
             #H.remove_node(n)
-    st.write('Display focussed network')
+    st.write('The network comprising only the most connected words')
     fig, ax = plt.subplots(figsize=(6, 6), dpi=150)
     colour_map = ['red' if node in top_nodes else 'b' for node in H]
     nx.draw(H, pos=pos, ax=ax, edge_color='black' ,width=1, linewidths=1, node_size=8,
