@@ -210,14 +210,25 @@ def main():
     st.header('Analysis')
     st.write('The most connected nodes')
     st.write(top_nodes)
+
+
     node = top_nodes[0]
-    h = nx.from_dict_of_lists({node: G.neighbors(node)})
+    #H = nx.from_dict_of_lists({node: G.neighbors(node)})
     
+    d=2
+    H = G.copy()
+        dn = nx.degree(H)
+        for n in H.nodes():
+            if dn[n] <= d:
+                H.remove_node(n)
+
     fig, ax = plt.subplots(figsize=(12, 12), dpi=300)
-    color_map = ['red' if node in top_nodes else 'b' for node in h]
+    color_map = ['red' if node in top_nodes else 'b' for node in H]
     nx.draw(h, pos=pos, ax=ax, edge_color='black' ,width=1, linewidths=1, node_size=10,
             node_color=color_map, with_labels=True, font_weight='normal', font_size=12)
     st.pyplot(fig)
+
+
 
 #==============================================================================
 
