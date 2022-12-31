@@ -210,8 +210,15 @@ def main():
     st.header('Analysis')
     st.write('The most connected nodes')
     st.write(top_nodes)
+    node = top_nodes[0]
+    h = nx.from_dict_of_lists({node: G.neighbors(node)})
     
-    
+    fig, ax = plt.subplots(figsize=(12, 12), dpi=300)
+
+    nx.draw(h, pos=pos, ax=ax, edge_color='black' ,width=1, linewidths=1, node_size=10,
+            node_color=color_map, with_labels=True, font_weight='normal', font_size=8)
+    st.pyplot(fig)
+
 #==============================================================================
 
 if __name__ == '__main__':
