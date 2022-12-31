@@ -218,7 +218,7 @@ def main():
     st.header('Analysis')
     st.write('The most connected nodes')
     
-    st.write([x for x in top_nodes[0])
+    st.write([x[0] for x in top_nodes])
     
     top_nodes_and_connections = []
     for node in top_nodes:
