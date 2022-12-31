@@ -216,8 +216,8 @@ def main():
     
     #==============================================================================
     st.header('Analysis')
-    st.write('The words with the most connection s')
-    st.dataframe(pd.DataFrame(data=node_to_neighbors_ser, columns=['num connections']))
+    st.write('The words with the most connections')
+    st.dataframe(pd.DataFrame(data=node_to_neighbors_ser, columns=['num connections']), width=200)
     #st.markdown([x for x in top_nodes])
     
     top_nodes_and_connections = []
