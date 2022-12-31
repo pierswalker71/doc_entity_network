@@ -55,7 +55,7 @@ def main():
     # Title
     st.title('Textual Analysis - Keyword identification and mapping')    
     st.write('Piers Walker 2022. https://github.com/pierswalker71')
-    st.write('This app analyses a series of texts, identifying the key words within each text and then making connections across the texts') 
+    st.write('This app analyses a series of news articles, identifying key words within each text and linking them across the texts')
     
     #==============================================================================   
     # Get data
@@ -100,13 +100,13 @@ def main():
         st.dataframe(data)
 
     # Display example NER
-    st.header('Demonstration of named entity recognition using input data')
-    st.write('Use of SpaCy ML model to identify entities')
+    st.header('Demonstration of conducting "named entity recognition" on the input data')
+    st.write('A machine-learning model is used to identify key word entities within the texts')
 
     with st.expander('Named entity recognition example'):
         st.write('Select text for processing')
-        eg_text_row = st.slider('Example row ID',0,len(data.index)-1,0)
-        eg_text_length = st.slider('Example text length',5,len(data.iloc[eg_text_row,0]),min(300,int(len(data.iloc[eg_text_row,0])*0.8)))
+        eg_text_row = st.slider('Row ID - example data',0,len(data.index)-1,0)
+        eg_text_length = st.slider('Text length - example data',5,len(data.iloc[eg_text_row,0]),min(300,int(len(data.iloc[eg_text_row,0])*0.8)))
     
     doc_example = nlp(data.iloc[eg_text_row,0][:eg_text_length])
     visualize_ner(doc_example, labels=nlp.get_pipe("ner").labels,title='', show_table=False)
