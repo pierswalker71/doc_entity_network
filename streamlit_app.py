@@ -59,7 +59,7 @@ def main():
     #==============================================================================   
     # Get data
     st.header('Import data')
-
+    st.write('Select news category')
     categories = ['alt.atheism', 'comp.graphics',
                   'comp.sys.ibm.pc.hardware', 'comp.sys.mac.hardware','comp.os.ms-windows.misc',
                   'comp.windows.x', 'misc.forsale', 'rec.autos',
