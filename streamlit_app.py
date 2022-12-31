@@ -234,7 +234,9 @@ def main():
         if node not in top_nodes_and_connections:
             H.remove_node(node)
         
-
+    st.write(list(G.nodes()))
+    st.write(list(H.nodes()))
+    
     #node = top_nodes[0]
     #H = nx.from_dict_of_lists({node: G.neighbors(node)})
     
