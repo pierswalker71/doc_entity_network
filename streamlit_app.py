@@ -225,7 +225,7 @@ def main():
     top_nodes_and_connections = []
     for node in top_nodes:
         top_nodes_and_connections_temp = nx.node_connected_component(G, node)
-        [top_nodes_and_connections.append(x) for x in top_nodes_and_connections_temp if x not in connection top_nodes_and_connections_temp]
+        [top_nodes_and_connections.append(x) for x in top_nodes_and_connections_temp if x not in top_nodes_and_connections_temp]
     st.write(top_nodes_and_connections)    
     #graph_top_nodes = G.copy()    
     #graph_top_nodes.remove_node(top_node_connections)
