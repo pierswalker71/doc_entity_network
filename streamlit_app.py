@@ -55,6 +55,7 @@ def main():
     # Title
     st.title('Textual Analysis - Keyword identification and mapping')    
     st.write('Piers Walker 2022. https://github.com/pierswalker71')
+    st.write('This app analyses a series of texts, identifying the key words within each text and then making connections across the texts') 
     
     #==============================================================================   
     # Get data
