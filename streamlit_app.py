@@ -139,7 +139,6 @@ def main():
     label_count = label_df.groupby(['label'], as_index=False)['count'].sum()
     label_count.sort_values(by='count', ascending=False, inplace=True)
     top_label_count = label_count['label'].tolist()[:5]
-
     # Create list of entities which have produced most common labels
     # Use this list to filter 
     top_label_count_entities = []
@@ -218,7 +217,7 @@ def main():
     #==============================================================================
     st.header('Analysis')
     st.write('The most connected nodes')
-    st.write(node_to_neighbors_ser)
+    st.write(pd.DataFrame(data=node_to_neighbors_ser))
     #st.markdown([x for x in top_nodes])
     
     top_nodes_and_connections = []
