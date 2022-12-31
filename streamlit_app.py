@@ -232,7 +232,7 @@ def main():
     fig, ax = plt.subplots(figsize=(12, 12), dpi=300)
     color_map = ['red' if node in top_nodes else 'b' for node in H]
     nx.draw(H, pos=pos, ax=ax, edge_color='black' ,width=1, linewidths=1, node_size=10,
-            #node_color=color_map, with_labels=True, font_weight='normal', font_size=12)
+            node_color=color_map, with_labels=True, font_weight='normal', font_size=12)
     st.pyplot(fig)
 
 
