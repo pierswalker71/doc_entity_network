@@ -218,7 +218,7 @@ def main():
     st.header('Analysis')
     st.write('The most connected nodes')
     
-    st.write([x[0] for x in top_nodes])
+    st.markdown(top_nodes)
     
     top_nodes_and_connections = []
     for node in top_nodes:
@@ -234,8 +234,8 @@ def main():
         if node not in top_nodes_and_connections:
             H.remove_node(node)
         
-    st.write(list(G))
-    st.write(list(H))
+    st.markdown(list(G))
+    st.markdown(list(H))
     
     #node = top_nodes[0]
     #H = nx.from_dict_of_lists({node: G.neighbors(node)})
