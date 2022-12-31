@@ -230,7 +230,7 @@ def main():
     
     H = G.copy()
     
-    for node in G.nodes():
+    for node in list(G.nodes()):
         if node not in top_nodes_and_connections:
             H.remove_node(node)
         
