@@ -217,7 +217,7 @@ def main():
     #==============================================================================
     st.header('Analysis')
     st.write('The most connected nodes')
-    #st.dataframe(pd.DataFrame(data=node_to_neighbors_ser, columns=['num connections']))
+    st.dataframe(pd.DataFrame(data=node_to_neighbors_ser, columns=['num connections']))
     #st.markdown([x for x in top_nodes])
     
     top_nodes_and_connections = []
@@ -227,7 +227,7 @@ def main():
     
     top_nodes_and_connections = list(set(top_nodes_and_connections))
    
-    #st.write('top_nodes_and_connections')
+    st.write('top_nodes_and_connections')
     #st.markdown(top_nodes_and_connections)
     
    
