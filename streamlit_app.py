@@ -126,9 +126,11 @@ def main():
     # Build df for all pages with named entities for every row
     label_df = pd.DataFrame(columns =['page','entity','label', 'count'])
 
+    
     #for row_id in range(data.shape[0]-1):
     #for row_id in range(len(data.index)-1):
-    for row_id in range(50):
+    for row_id in range(num_rows_required):
+    #for row_id in range(50):
         doc = nlp(data.iloc[:,0][row_id])
         page_title = str(row_id)
         #doc.user_data['title'] = page_title
