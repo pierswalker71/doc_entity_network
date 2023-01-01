@@ -78,7 +78,7 @@ def main():
 
     newsgroups = fetch_20newsgroups(categories=[news_category],remove=('headers', 'footers', 'quotes'))
 
-    text = [x.replace('\n', ' ') for x in newsgroups.data]     # remove /n 
+    
     text = [x.lower() for x in newsgroups.data] # lower
     
     # Remove special characters
@@ -86,6 +86,8 @@ def main():
     for t in text:
         new_t = re.sub(r"[^a-zA-Z0-9 ]", "", t)
         text_.append(new_t)
+        
+    text_ = [x.replace('\n', ' ') for x in text_]  # remove /n 
     text = text_  
     
     #st.write(text)
