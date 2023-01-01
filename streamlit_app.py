@@ -242,18 +242,14 @@ def main():
     #label_options = {"ec": "k", "fc": "white", "alpha": 0.7}
     #nx.draw_networkx_labels(G, pos, font_size=14, bbox=label_options)
 
-
-
     nx.draw(G, pos=pos, ax=ax, edge_color='black' ,width=1, linewidths=1, node_size=10,
-            node_color=colour_map, with_labels=True, font_weight='normal', font_size=8)
+            node_color=colour_map, with_labels=True, font_weight='normal', font_size=9)
     st.pyplot(fig)
     
     #==============================================================================
     st.header('Analysis')
     st.write('The words with the most connections')
-    st.dataframe(labels_num_pages)
-    #st.dataframe(pd.DataFrame(data=node_to_neighbors_ser, columns=['num connections']), width=200)
-    #st.markdown([x for x in top_nodes])
+    st.dataframe(labels_num_pages[labels_num_pages['num pages']>1])
     
     top_nodes_and_connections = []
     for node in top_nodes:
@@ -261,8 +257,6 @@ def main():
         #[top_nodes_and_connections.append(x) for x in nx.node_connected_component(G, node)]
         for x in nx.node_connected_component(G, node):
             top_nodes_and_connections.append(x)
-   
-    #st.dataframe(pd.DataFrame(data=node_to_neighbors_ser, columns=['num connections']))
     
     top_nodes_and_connections = list(set(top_nodes_and_connections))
     
@@ -275,7 +269,7 @@ def main():
     fig, ax = plt.subplots(figsize=(10, 10), dpi=150)
     colour_map = ['red' if node in top_nodes else 'b' for node in H]
     nx.draw(H, pos=pos, ax=ax, edge_color='black' ,width=1, linewidths=1, node_size=8,
-            node_color=colour_map, with_labels=True, font_weight='normal', font_size=8)
+            node_color=colour_map, with_labels=True, font_weight='normal', font_size=9)
     st.pyplot(fig) 
 
 
