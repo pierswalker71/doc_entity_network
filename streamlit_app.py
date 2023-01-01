@@ -150,12 +150,12 @@ def main():
     # label_df['label'] = [lower(x) for x in label_df['label']]
 
     #-----------------------------------------------
-    # filter relevant entities - eg reduce set of ORG, Cardinal, Person etc
+    # Filter relevant entities - eg reduce set of ORG, Cardinal, Person etc
 
     # Add up all occurrences of labels across all pages to find most common 
     label_count = label_df.groupby(['label'], as_index=False)['count'].sum()
     label_count.sort_values(by='count', ascending=False, inplace=True)
-    top_label_count = label_count['label'].tolist()[:5]
+    top_label_count = label_count['label'].tolist()[:5] ## TODO hardcoded num
     # Create list of entities which have produced most common labels
     # Use this list to filter 
     top_label_count_entities = []
@@ -202,7 +202,7 @@ def main():
     labels_num_pages = pd.DataFrame(data={'label':top_labels, 'num pages':num_pages})
     labels_num_pages.sort_values(by='num pages', ascending=False, inplace=True)
 
-    top_nodes = labels_num_pages.iloc[:5,0].tolist()
+    top_nodes = labels_num_pages.iloc[:5,0].tolist() ## TODO hardcoded num
 
  
     #-----------------------------------------------
@@ -251,7 +251,8 @@ def main():
     #==============================================================================
     st.header('Analysis')
     st.write('The words with the most connections')
-    st.dataframe(pd.DataFrame(data=node_to_neighbors_ser, columns=['num connections']), width=200)
+    st.dataframe(labels_num_pages)
+    #st.dataframe(pd.DataFrame(data=node_to_neighbors_ser, columns=['num connections']), width=200)
     #st.markdown([x for x in top_nodes])
     
     top_nodes_and_connections = []
