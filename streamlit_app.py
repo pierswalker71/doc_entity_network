@@ -13,6 +13,7 @@ def main():
     
     from collections import Counter
     from itertools import combinations
+    import re
     
     import spacy
     nlp = spacy.load("en_core_web_md")
@@ -78,6 +79,7 @@ def main():
     newsgroups = fetch_20newsgroups(categories=[news_category],remove=('headers', 'footers', 'quotes'))
     text = [x.replace('\n', ' ') for x in newsgroups.data]
     text = [x.lower() for x in newsgroups.data]
+    
     #st.write(text)
     #text = [x[:100] for x in text]
     
