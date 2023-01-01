@@ -129,16 +129,14 @@ def main():
     
     #for row_id in range(data.shape[0]-1):
     #for row_id in range(len(data.index)-1):
-    for row_id in range(num_rows_required):
-    #for row_id in range(50):
+    #for row_id in range(num_rows_required):
+    for row_id in range(100):
         doc = nlp(data.iloc[:,0][row_id])
         page_title = str(row_id)
         #doc.user_data['title'] = page_title
         label_df = pd.concat([label_df,ner_to_dataframe(doc,page_title)])
 
     label_df.reset_index(drop=True,inplace=True)
-    
-    # label_df['label'] = [lower(x) for x in label_df['label']]
 
     #-----------------------------------------------
     # Filter relevant entities - eg reduce set of ORG, Cardinal, Person etc
