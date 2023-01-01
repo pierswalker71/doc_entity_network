@@ -77,8 +77,16 @@ def main():
         news_category = st.selectbox('Select a different category from the "20 news groups" dataset',categories)
 
     newsgroups = fetch_20newsgroups(categories=[news_category],remove=('headers', 'footers', 'quotes'))
-    text = [x.replace('\n', ' ') for x in newsgroups.data]
-    text = [x.lower() for x in newsgroups.data]
+
+    text = [x.replace('\n', ' ') for x in newsgroups.data]     # remove /n 
+    text = [x.lower() for x in newsgroups.data] # lower
+    
+    # Remove special characters
+    text_ = []
+    for t in text:
+        new_t = re.sub(r"[^a-zA-Z0-9 ]", "", t)
+        text_.append(new_t)
+    text = text_  
     
     #st.write(text)
     #text = [x[:100] for x in text]
