@@ -55,7 +55,7 @@ def main():
     # Title
     st.title('Textual Analysis - Keyword identification and mapping')    
     st.write('Piers Walker 2022. https://github.com/pierswalker71')
-    st.write('This app analyses a series of news articles, identifying key words within each text and linking them across the texts.')
+    st.write('This app analyses a series of news articles, identifying key words within each text and then linking the words across multiple texts.')
     
     #==============================================================================   
     # Get data
@@ -77,6 +77,7 @@ def main():
 
     newsgroups = fetch_20newsgroups(categories=[news_category],remove=('headers', 'footers', 'quotes'))
     text = [x.replace('\n', ' ') for x in newsgroups.data]
+    text = [x.lower() for x in newsgroups.data]
     #st.write(text)
     #text = [x[:100] for x in text]
     
@@ -131,9 +132,11 @@ def main():
         label_df = pd.concat([label_df,ner_to_dataframe(doc,page_title)])
 
     label_df.reset_index(drop=True,inplace=True)
+    
+    # label_df['label'] = [lower(x) for x in label_df['label']]
 
     #-----------------------------------------------
-    # filter relevant entities
+    # filter relevant entities - eg reduce ORG, Cardinal, person etc
 
     # Add up all occurrences of labels across all pages to find most common 
     label_count = label_df.groupby(['label'], as_index=False)['count'].sum()
@@ -142,7 +145,6 @@ def main():
     # Create list of entities which have produced most common labels
     # Use this list to filter 
     top_label_count_entities = []
-
     for label in top_label_count:
         for x in label_df[label_df['label']==label]['entity'].tolist ():
             top_label_count_entities.append(x )
