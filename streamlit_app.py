@@ -96,7 +96,8 @@ def main():
     # Truncate long strings
     
     # Select just first few rows of data
-    num_rows_required = st.number_input('Select number of rows of data for processing',100,len(data.index),100)
+    with st.expander('Change data length if required'):
+        num_rows_required = st.slider('Select number of rows of data for processing',100,len(data.index),100)
     data = data.iloc[:num_rows_required,:]
     
     #-----------------------------------------------------------------  
@@ -116,9 +117,6 @@ def main():
     doc_example = nlp(data.iloc[eg_text_row,0][:eg_text_length])
     visualize_ner(doc_example, labels=nlp.get_pipe("ner").labels,title='', show_table=False)
     #https://github.com/explosion/spacy-streamlit
-    
-    #fig,ax = plt.subplots(figsize=(15,6))
-    #st.pyplot(fig)
     
     #==============================================================================
     # Processing data
