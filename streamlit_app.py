@@ -265,41 +265,18 @@ def main():
     #st.dataframe(pd.DataFrame(data=node_to_neighbors_ser, columns=['num connections']))
     
     top_nodes_and_connections = list(set(top_nodes_and_connections))
-   
-    #st.write('top_nodes_and_connections')
-    #st.markdown(top_nodes_and_connections)
-    
-   
     
     H = G.copy()
-    
     for node in list(G):
         if node not in top_nodes_and_connections:
             H.remove_node(node)
-      
-    #st.write('list(G)')
-    #st.markdown(list(G))
-    #st.write('list(H)')
-    #st.markdown(list(H))
-    
-    #node = top_nodes[0]
-    #H = nx.from_dict_of_lists({node: G.neighbors(node)})
-    
-    #d=2
-    #H = G.copy()
-    #dn = nx.degree(H)
-    #for n in H.nodes():
-        #if dn[n] <= d:
-            #H.remove_node(n)
+
     st.write('The network comprising only the most connected words')
-    fig, ax = plt.subplots(figsize=(6, 6), dpi=150)
+    fig, ax = plt.subplots(figsize=(10, 10), dpi=150)
     colour_map = ['red' if node in top_nodes else 'b' for node in H]
     nx.draw(H, pos=pos, ax=ax, edge_color='black' ,width=1, linewidths=1, node_size=8,
-            node_color=colour_map, with_labels=True, font_weight='normal', font_size=10)
-    st.pyplot(fig)
-    
-    #st.write(nx.node_connected_component(G, node))
-    
+            node_color=colour_map, with_labels=True, font_weight='normal', font_size=8)
+    st.pyplot(fig) 
 
 
 
