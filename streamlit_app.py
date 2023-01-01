@@ -91,23 +91,13 @@ def main():
     text_ = [x.replace('\n', ' ') for x in text_]  # remove /n 
     text = text_  
     
-    #st.write(text)
-    #text = [x[:100] for x in text]
-    
     data = pd.DataFrame(data={'text':text})
-
-    
+  
     # Truncate long strings
-    #data['text'] = data['text'].str.replace('\W', '', regex=True)
-    #special_chars = '¬`£$£#/,.+*><@|”'
-    #special_chars = {x:'' for x in special_chars}
-
-    #df.stack().str.replace(f'[{chars}]', '', regex=True).unstack()
-    #data.replace(, regex=True, inplace=True)
-    #data['text'] = data['text'].str.slice(0,50)
     
     # Select just first few rows of data
-    data = data.iloc[:100,:]
+    num_rows_required = st.number_input('Select number of rows of data for processing',100,len(data.index),100)
+    data = data.iloc[:num_rows_required,:]
     
     #-----------------------------------------------------------------  
     # Display dataset
