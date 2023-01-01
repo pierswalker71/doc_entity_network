@@ -91,7 +91,9 @@ def main():
     text_ = [x.replace('\n', ' ') for x in text_]  # remove /n 
     text = text_  
     
+    # Build core data frame
     data = pd.DataFrame(data={'text':text})
+    data.dropna(how='all', inplace=True) # drop rows that just had special characters or where blank
   
     # Truncate long strings
     
