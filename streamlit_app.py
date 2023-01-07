@@ -245,7 +245,7 @@ def main():
     #-----------------------------------------------
     st.write('Texts with the most common word ')
     #st.dataframe(label_df[label_df['label'].isin(top_nodes[:1])]['page'])
-    top_node_pages = [x for x in label_df[label_df['label'].isin(top_nodes[:1])]['page'].tolist()]
+    top_node_pages = label_df[label_df['label'].isin(top_nodes])]['page'].tolist()
     
     st.dataframe(data.iloc[top_node_pages])
 
@@ -254,7 +254,8 @@ def main():
         top_text_row = st.selectbox('Row ID - top word', top_node_pages, key='top_text_row')
         #top_text_length = st.slider('Text length - top word', 5, len(data.iloc[top_text_row,0]), min(300,int(len(data.iloc[top_text_row,0])*0.8)), key='top_text_length')
         top_text_length = 20
-        doc_top_text = nlp(data.iloc[top_text_row,0][:top_text_length])
+        #doc_top_text = nlp(data.iloc[top_text_row,0][:top_text_length])
+        doc_top_text = nlp(data.iloc[12,0][:top_text_length])
         visualize_ner(doc_top_text, labels=nlp.get_pipe("ner").labels, title='', show_table=False, key='top_node_ner')
     
     
