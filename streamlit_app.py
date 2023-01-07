@@ -62,14 +62,14 @@ def main():
     # Get data
     st.header('Import data')
     st.write('Select news category')
-    categories = ['alt.atheism', 'comp.graphics',
+    categories = ['sci.space', 'comp.graphics',
                   'comp.sys.ibm.pc.hardware', 'comp.sys.mac.hardware','comp.os.ms-windows.misc',
                   'comp.windows.x', 'misc.forsale', 'rec.autos',
                   'rec.motorcycles', 'rec.sport.baseball',
                   'rec.sport.hockey', 'sci.crypt', 'sci.electronics',
-                  'sci.med', 'sci.space', 'soc.religion.christian',
+                  'sci.med',  'soc.religion.christian',
                   'talk.politics.guns', 'talk.politics.mideast',
-                  'talk.politics.misc', 'talk.religion.misc']
+                  'talk.politics.misc', 'talk.religion.misc', 'alt.atheism']
 
     #categories = ['comp.windows.x','rec.sport.baseball','rec.sport.hockey']
 
@@ -242,11 +242,11 @@ def main():
     st.header('Analysis')
     
     #-----------------------------------------------
-    st.write('The words with the most connections')
+    st.write('The words with the most connections i.e. found on the most number of pages')
     st.dataframe(labels_num_pages[labels_num_pages['num pages']>1])
     
     #-----------------------------------------------
-    st.write('Texts with the most common words')
+    st.write('Texts with the most common words ')
     st.dataframe(label_df[label_df['label'].isin(top_nodes[:1])]['pages'])
     st.write(label_df[label_df['label'].isin(top_nodes[:1])]['pages'].tolist())
     
