@@ -253,7 +253,7 @@ def main():
     
     with st.expander('Display text containing most common word'):
         st.write('Select text containing most common word')
-        top_text_row = st.slider('Row ID - top word', 0, len(data.index)-1,0, key='top_text_row')
+        top_text_row = st.selectbox('Row ID - top word', top_node_pages, key='top_text_row')
         top_text_length = st.slider('Text length - top word', 5, len(data.iloc[top_text_row,0]), min(300,int(len(data.iloc[top_text_row,0])*0.8)), key='top_text_length')
 
         doc_example = nlp(data.iloc[top_text_row,0][:top_text_length])
