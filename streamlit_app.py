@@ -248,9 +248,7 @@ def main():
     top_node_pages = label_df[label_df['label'].isin(top_nodes[:1])]['page'].tolist()
     
     st.dataframe(data.iloc[top_node_pages])
-    
-    text_row = st.slider('Row ID - example data',0,len(data.index)-1,0)
-    
+
     with st.expander('Display text containing most common word'):
         st.write('Select text containing most common word')
         top_text_row = st.selectbox('Row ID - top word', top_node_pages, key='top_text_row')
