@@ -193,10 +193,7 @@ def main():
     labels_num_pages.sort_values(by='num pages', ascending=False, inplace=True)
 
     top_nodes = labels_num_pages.iloc[:5,0].tolist() ## TODO hardcoded num
-    
-    
 
- 
     #-----------------------------------------------
     # Build dataframe with connections of labels within each page required by networkx
     networkx_data = pd.DataFrame(columns=['source','target'])
@@ -247,8 +244,14 @@ def main():
     
     #-----------------------------------------------
     st.write('Texts with the most common word ')
-    st.dataframe(label_df[label_df['label'].isin(top_nodes[:1])]['page'])
-    st.write(label_df[label_df['label'].isin(top_nodes[:1])]['page'].tolist())
+    #st.dataframe(label_df[label_df['label'].isin(top_nodes[:1])]['page'])
+    top_node_pages = label_df[label_df['label'].isin(top_nodes[:1])]['page'].tolist()
+    
+    st.dataframe(data.iloc[top_node_pages])
+    
+    for doc in data.iloc[top_node_pages][:3]:
+        doc_example = nlp(data.iloc[eg_text_row,0][:eg_text_length])
+        visualize_ner(doc_example, labels=nlp.get_pipe("ner").labels,title='', show_table=False)
     
     
     #-----------------------------------------------
