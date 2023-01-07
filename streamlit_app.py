@@ -277,7 +277,8 @@ def main():
     st.write('The network comprising only the most connected words')
     fig, ax = plt.subplots(figsize=(10, 10), dpi=150)
     colour_map = ['red' if node in top_nodes else 'b' for node in H]
-    nx.draw(H, pos=pos, ax=ax, edge_color='black' ,width=1, linewidths=1, node_size=8,
+    pos_h = nx.spring_layout(H, k=0.15, iterations=20, seed=42)
+    nx.draw(H, pos=pos_h, ax=ax, edge_color='black' ,width=1, linewidths=1, node_size=8,
             node_color=colour_map, with_labels=True, font_weight='normal', font_size=9)
     st.pyplot(fig) 
 
