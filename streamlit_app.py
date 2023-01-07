@@ -249,9 +249,9 @@ def main():
     
     st.dataframe(data.iloc[top_node_pages])
     
-    for doc in data.iloc[top_node_pages][:3]:
+    for n, doc in enumerate(data.iloc[top_node_pages][:1]):
         doc_example = nlp(data.iloc[eg_text_row,0][:eg_text_length])
-        visualize_ner(doc_example, labels=nlp.get_pipe("ner").labels,title='', show_table=False)
+        visualize_ner(doc_example, labels=nlp.get_pipe("ner").labels, title='', show_table=False, key=n)
     
     
     #-----------------------------------------------
