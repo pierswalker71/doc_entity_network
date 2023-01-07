@@ -247,7 +247,7 @@ def main():
     
     #-----------------------------------------------
     st.write('Texts with the most common word ')
-    st.dataframe(label_df[label_df['label'].isin(top_nodes[:1])]['pages'])
+    st.dataframe(label_df[label_df['label'].isin(top_nodes[:1])]['page'])
     st.write(label_df[label_df['label'].isin(top_nodes[:1])]['page'].tolist())
     
     
