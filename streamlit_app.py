@@ -113,8 +113,8 @@ def main():
 
     with st.expander('Named entity recognition example'):
         st.write('Select text for processing')
-        eg_text_row = st.slider('Row ID - example data',0,len(data.index)-1,0)
-        eg_text_length = st.slider('Text length - example data',5,len(data.iloc[eg_text_row,0]),min(300,int(len(data.iloc[eg_text_row,0])*0.8)))
+        eg_text_row = st.slider('Row ID - example data', 0, len(data.index)-1,0)
+        eg_text_length = st.slider('Text length - example data', 5, len(data.iloc[eg_text_row,0]), min(300,int(len(data.iloc[eg_text_row,0])*0.8)))
     
     doc_example = nlp(data.iloc[eg_text_row,0][:eg_text_length])
     visualize_ner(doc_example, labels=nlp.get_pipe("ner").labels,title='', show_table=False)
@@ -253,8 +253,8 @@ def main():
     
     with st.expander('Display text containing most common word'):
         st.write('Select text containing most common word')
-        top_text_row = st.slider('Row ID - top word',0,len(data.index)-1,0)
-        top_text_length = st.slider('Text length - top word',5,len(data.iloc[top_text_row,0]), min(300,int(len(data.iloc[top_text_row,0])*0.8)))
+        top_text_row = st.slider('Row ID - top word', 0, len(data.index)-1,0, key='top_text_row')
+        top_text_length = st.slider('Text length - top word', 5, len(data.iloc[top_text_row,0]), min(300,int(len(data.iloc[top_text_row,0])*0.8)), key='top_text_length)
 
         doc_example = nlp(data.iloc[top_text_row,0][:top_text_length])
         visualize_ner(doc_example, labels=nlp.get_pipe("ner").labels, title='', show_table=False, key='top_node-ner')
