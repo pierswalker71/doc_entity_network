@@ -182,8 +182,7 @@ def main():
     
     #-----------------------------------------------    
     # Determine most common nodes - those which appear on most num of pages
-    top_labels = []
-    num_pages = []
+    top_labels, num_pages = [], []
 
     for label in filtered_label_df['label'].unique().tolist():
         df = filtered_label_df[filtered_label_df['label']==label]
@@ -194,6 +193,8 @@ def main():
     labels_num_pages.sort_values(by='num pages', ascending=False, inplace=True)
 
     top_nodes = labels_num_pages.iloc[:5,0].tolist() ## TODO hardcoded num
+    
+    
 
  
     #-----------------------------------------------
@@ -211,7 +212,7 @@ def main():
     # Create graph
     G = nx.from_pandas_edgelist(networkx_data,source='source',target='target')
 
-    # Determine most connected nodes
+    # Determine most connected nodes - old method
     #node_to_neighbors_mapping = [(node, len(list(G.neighbors(node)))) for node in G.nodes()]
     #node_to_neighbors_ser = pd.Series(data=dict(node_to_neighbors_mapping))
     #node_to_neighbors_ser.sort_values(ascending=False, inplace=True)
@@ -239,9 +240,18 @@ def main():
     
     #==============================================================================
     st.header('Analysis')
+    
+    #-----------------------------------------------
     st.write('The words with the most connections')
     st.dataframe(labels_num_pages[labels_num_pages['num pages']>1])
     
+    #-----------------------------------------------
+    st.write('Texts with the most common words')
+    st.dataframe(label_df[label_df['label'].isin(top_nodes[:1])])
+    
+    
+    #-----------------------------------------------
+    # Generate smaller trimmed network with only the connected items
     top_nodes_and_connections = []
     for node in top_nodes:
         top_nodes_and_connections_temp = nx.node_connected_component(G, node)
